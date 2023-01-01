@@ -1,0 +1,19 @@
+@import "fonts.css";
+@import "global.css";
+
+.menu {
+    background-color: #000;
+}
+
+.menu-wrap {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    height: 60px;
+}
+
+.menu-item {
+    color: #fff;
+    text-decoration: none;
+    padding-right: 20px;
+}
