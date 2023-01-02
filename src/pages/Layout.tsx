@@ -5,13 +5,13 @@ import {Outlet} from "react-router";
 
 const Layout = () => {
     return (
-        <>
+        <div>
             <CssBaseline/>
             <Header/>
             <div className={'container inner'}>
                 <Outlet/>
             </div>
-        </>
+        </div>
     );
 };
 

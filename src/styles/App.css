@@ -17,3 +17,20 @@
     text-decoration: none;
     padding-right: 20px;
 }
+
+.img {
+    width: 225px;
+    height: 225px;
+    object-fit: cover;
+    object-position: center;
+}
+
+.list-img {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.item-img {
+    padding-bottom: 20px;
+    padding-right: 25px;
+}

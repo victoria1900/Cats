@@ -6,8 +6,8 @@ const Header = () => {
     return (
         <div className={'menu'}>
             <div className={'menu-wrap container'}>
-                <Link to={'/'} className={'menu-item'}>Cats list</Link>
-                <Link to={'favorite-cats'} className={'menu-item'}>Favorite cats</Link>
+                <Link to={'/'} className={'menu-item font-type'}>Cats list</Link>
+                <Link to={'favorite-cats'} className={'menu-item font-type'}>Favorite cats</Link>
             </div>
         </div>
     );
