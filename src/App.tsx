@@ -1,5 +1,5 @@
 import React from 'react';
-import './styles/App.css';
+import './styles/index.scss';
 import {Route, Routes} from "react-router";
 import Layout from "./pages/Layout";
 import NotFound from "./pages/NotFound";

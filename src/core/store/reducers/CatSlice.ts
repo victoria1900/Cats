@@ -1,17 +1,12 @@
-import {Cat} from "../../types/ICat";
+import {Cat, CatState} from "../types/ICat";
 import {createSlice, PayloadAction} from "@reduxjs/toolkit";
-
-interface CatState {
-    cats: Cat[],
-    isLoading: boolean,
-    error: string,
-}
 
 const initialState: CatState = {
     cats: [],
     isLoading: false,
     error: '',
 }
+
 export const catSlice = createSlice({
     name: 'cat',
     initialState,
@@ -27,6 +22,11 @@ export const catSlice = createSlice({
         catsFetchingError(state, action: PayloadAction<string>) {
             state.isLoading = false;
             state.error = action.payload;
+        },
+        catsFetchingOnScroll(state, action: PayloadAction<Cat[]>) {
+            state.error = '';
+            state.cats = [...state.cats, ...action.payload]
+            state.isLoading = false;
         }
     }
 })

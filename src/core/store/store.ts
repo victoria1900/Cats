@@ -1,5 +1,5 @@
 import {combineReducers, configureStore} from "@reduxjs/toolkit";
-import catReducer from '../store/reducers/CatSlice'
+import catReducer from './reducers/CatSlice'
 
 const rootReducer = combineReducers({
     catReducer
@@ -7,7 +7,7 @@ const rootReducer = combineReducers({
 
 export const setupStore = () => {
     return configureStore({
-        reducer: rootReducer
+        reducer: rootReducer,
     })
 }
 

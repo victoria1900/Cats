@@ -1,0 +1,37 @@
+@import "fonts";
+@import "global";
+@import "variables";
+
+.menu {
+  background-color: $menu-background-color;
+}
+
+.menu-wrap {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  height: 60px;
+}
+
+.menu-item {
+  color: $text-color;
+  text-decoration: none;
+  padding-right: 20px;
+}
+
+.img {
+  background-color: $menu-background-color;
+  width: $img-size-desktop;
+  height: $img-size-desktop;
+  object-fit: cover;
+  object-position: center;
+}
+
+.list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.item {
+  padding: $item-padding-desktop;
+}
