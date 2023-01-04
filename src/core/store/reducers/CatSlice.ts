@@ -17,17 +17,12 @@ export const catSlice = createSlice({
         catsFetchingSuccess(state, action: PayloadAction<Cat[]>) {
             state.isLoading = false;
             state.error = '';
-            state.cats = action.payload;
+            state.cats = [...state.cats, ...action.payload];
         },
         catsFetchingError(state, action: PayloadAction<string>) {
             state.isLoading = false;
             state.error = action.payload;
         },
-        catsFetchingOnScroll(state, action: PayloadAction<Cat[]>) {
-            state.error = '';
-            state.cats = [...state.cats, ...action.payload]
-            state.isLoading = false;
-        }
     }
 })
 export default catSlice.reducer

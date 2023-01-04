@@ -1,5 +1,15 @@
 @import "variables";
 
+body {
+  margin: $margin-none;
+  font-family: $text-font-family;
+  font-size: $text-font-size;
+}
+
+p {
+  margin-top: $margin-top-none;
+}
+
 .container {
   max-width: $container-width;
   padding: 0 15px 0 15px;
@@ -8,11 +18,8 @@
 }
 
 .inner {
-  padding-top: 20px;
-}
-
-.font-type {
-  font-family: $text-font-family;
-  font-size: $text-font-size;
-  margin: 0;
+  padding-top: 35px;
+  @media (max-width: $breakpoint-mobile) {
+    padding-top: 15px;
+  }
 }

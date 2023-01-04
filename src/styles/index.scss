@@ -25,6 +25,10 @@
   height: $img-size-desktop;
   object-fit: cover;
   object-position: center;
+  @media (max-width: $breakpoint-mobile) {
+    width: $img-size-mobile;
+    height: $img-size-mobile;
+  }
 }
 
 .list {
@@ -34,4 +38,7 @@
 
 .item {
   padding: $item-padding-desktop;
+  @media (max-width: $breakpoint-mobile) {
+    padding: $item-padding-mobile;
+  }
 }
