@@ -37,8 +37,30 @@
 }
 
 .item {
-  padding: $item-padding-desktop;
+  position: relative;
+  margin: $item-margin-desktop;
   @media (max-width: $breakpoint-mobile) {
-    padding: $item-padding-mobile;
+    margin: $item-margin-mobile;
   }
+}
+
+.button {
+  content: '';
+  position: absolute;
+  width: $heart-size;
+  height: $heart-size;
+  bottom: 15px;
+  right: 10px;
+  background-image: url("../img/heart.svg");
+  background-repeat: no-repeat;
+  background-color: transparent;
+  border: 0;
+  cursor: pointer;
+  &:hover {
+    background-image: url("../img/cheked-heart.svg");
+    transition: visibility 1s linear;
+  }
+}
+.checked-button{
+  background-image: url("../img/cheked-heart.svg");
 }
