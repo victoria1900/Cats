@@ -9,13 +9,16 @@ const CatsList = () => {
     const effectRun = useRef(false);
 
     useEffect(() => {
-        if (!effectRun.current) {
-            dispatch(fetchCats());
-            return () => {
-                effectRun.current = true;
+        if (isLoading) {
+            if (!effectRun.current) {
+                dispatch(fetchCats());
+                return () => {
+                    effectRun.current = true;
+                }
             }
         }
-    }, [dispatch]);
+        // eslint-disable-next-line
+    }, [isLoading]);
 
     return (
         <>

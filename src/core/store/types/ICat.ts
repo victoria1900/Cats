@@ -1,8 +1,6 @@
 export interface Cat {
     id: string,
-    url: string,
-    width: null | number,
-    height: null | number,
+    url: string
 }
 export interface CatState {
     cats: Cat[],

@@ -1,6 +1,7 @@
 @import "fonts";
 @import "global";
 @import "variables";
+@import "normalize.css/normalize.css";
 
 .menu {
   background-color: $menu-background-color;
@@ -56,11 +57,13 @@
   background-color: transparent;
   border: 0;
   cursor: pointer;
+
   &:hover {
-    background-image: url("../img/cheked-heart.svg");
+    background-image: url("../img/checked-heart.svg");
     transition: visibility 1s linear;
   }
 }
-.checked-button{
-  background-image: url("../img/cheked-heart.svg");
+
+.checked-button {
+  background-image: url("../img/checked-heart.svg");
 }

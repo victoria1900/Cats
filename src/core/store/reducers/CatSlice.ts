@@ -3,7 +3,7 @@ import {createSlice, PayloadAction} from "@reduxjs/toolkit";
 
 const initialState: CatState = {
     cats: [],
-    isLoading: false,
+    isLoading: true,
     error: '',
 }
 
@@ -15,9 +15,9 @@ export const catSlice = createSlice({
             state.isLoading = true;
         },
         catsFetchingSuccess(state, action: PayloadAction<Cat[]>) {
-            state.isLoading = false;
             state.error = '';
             state.cats = [...state.cats, ...action.payload];
+            state.isLoading = false;
         },
         catsFetchingError(state, action: PayloadAction<string>) {
             state.isLoading = false;
