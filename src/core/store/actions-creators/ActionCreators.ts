@@ -1,5 +1,5 @@
 import axios from "axios";
-import {Cat} from "../types/ICat";
+import {Cat} from "../../types/ICat";
 import {catSlice} from "../reducers/CatSlice";
 import {AppDispatch} from "../store";
 

@@ -1,10 +1,10 @@
 import React from 'react';
 
 const FavoriteCats = () => {
-    return (
-        <div>
+        return (
+        <>
 
-        </div>
+        </>
     );
 };
 

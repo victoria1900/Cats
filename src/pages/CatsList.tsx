@@ -2,9 +2,10 @@ import React, {useEffect, useRef} from 'react';
 import {useAppDispatch, useAppSelector} from "../core/hooks/redux";
 import {fetchCats} from "../core/store/actions-creators/ActionCreators";
 import CatCard from "../components/CatCard";
+import {selectCatReducers} from "../core/store/reducers/CatSlice";
 
 const CatsList = () => {
-    const {error, isLoading} = useAppSelector(state => state.catReducer);
+    const {error, isLoading} = useAppSelector(selectCatReducers);
     const dispatch = useAppDispatch();
     const effectRun = useRef(false);
 
@@ -17,8 +18,7 @@ const CatsList = () => {
                 }
             }
         }
-        // eslint-disable-next-line
-    }, [isLoading]);
+    }, [isLoading, dispatch]);
 
     return (
         <>
@@ -26,7 +26,7 @@ const CatsList = () => {
                 <CatCard/>
             </div>
             {error && <p>{error}</p>}
-            {isLoading && <p>Loading...</p>}
+            {isLoading && <p className={'text-loading'}>Loading cats...</p>}
         </>
     );
 };

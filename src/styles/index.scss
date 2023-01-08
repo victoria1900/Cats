@@ -2,6 +2,7 @@
 @import "global";
 @import "variables";
 @import "normalize.css/normalize.css";
+@import "mixins";
 
 .menu {
   background-color: $menu-background-color;
@@ -52,18 +53,30 @@
   height: $heart-size;
   bottom: 15px;
   right: 10px;
-  background-image: url("../img/heart.svg");
+  background-image: url("../assets/svg/heart.svg");
   background-repeat: no-repeat;
   background-color: transparent;
   border: 0;
   cursor: pointer;
+  transition: 0.5s ease-in-out;
 
   &:hover {
-    background-image: url("../img/checked-heart.svg");
-    transition: visibility 1s linear;
+    background-image: url("../assets/svg/checked-heart.svg");
+    transition: 0.2s linear;
+  }
+
+  &:active {
+    transform: scale(1.2);
   }
 }
 
 .checked-button {
-  background-image: url("../img/checked-heart.svg");
+  background-image: url("../assets/svg/checked-heart.svg");
 }
+
+.text-loading {
+  display: inline-block;
+  clip-path: inset(0 1ch 0 0);
+  animation: loading 1s steps(8) infinite;
+}
+

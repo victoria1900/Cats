@@ -1,27 +1,31 @@
 import React from 'react';
-import {useAppSelector} from "../core/hooks/redux";
+import {useAppDispatch, useAppSelector} from "../core/hooks/redux";
+import {
+    catsAddingToFavorite,
+    catsRemovingFromFavorite,
+    selectCatReducers,
+} from "../core/store/reducers/CatSlice";
 
 const CatCard = () => {
-    const {cats} = useAppSelector(state => state.catReducer);
+    const {cats, favorites} = useAppSelector(selectCatReducers);
+    const dispatch = useAppDispatch();
 
     const addToFavorite = (id: string) => {
-        const arr: any = [];
-        if (arr.length === 0) {
-            return [...arr, id];
+        if (favorites.includes(id)) {
+            dispatch(catsRemovingFromFavorite(id));
+            return;
         }
-        if (arr.includes(id)) {
-            return cats.filter(cat => cat.id !== id);
-        }
-
-        return [...arr, id];
+        dispatch(catsAddingToFavorite(id));
     }
-
     return (
         <>
-            {cats.map(cat =>
-                <div className={'item'} key={cat.id}>
-                    <img className={'img'} loading="lazy" src={cat.url} alt="cat"/>
-                    <button className={'button'} onClick={() => addToFavorite(cat.id)}></button>
+            {cats.map(({id, url}) =>
+                <div className={'item'} key={id}>
+                    <img className={'img'} loading="lazy" src={url} alt="cat"/>
+                    <button
+                        className={favorites.includes(id) ? 'button checked-button' : 'button'}
+                        onClick={() => addToFavorite(id)}>
+                    </button>
                 </div>
             )}
         </>
