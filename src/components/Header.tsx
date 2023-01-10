@@ -6,7 +6,7 @@ const Header = () => {
     return (
         <div className={'menu'}>
             <div className={'menu-wrap container'}>
-                <Link to={'/'} className={'menu-item'}>Cats list</Link>
+                <Link to={'/'} className={'menu-item'}>Cat list</Link>
                 <Link to={'favorite-cats'} className={'menu-item'}>Favorite cats</Link>
             </div>
         </div>

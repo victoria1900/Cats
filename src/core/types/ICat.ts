@@ -5,7 +5,10 @@ export interface ICat {
 
 export interface CatState {
     cats: ICat[],
-    favorites: string[],
+    favorites: ICat[],
     isLoading: boolean,
     error: string,
+}
+export interface ICatCardProps {
+    cat: ICat
 }

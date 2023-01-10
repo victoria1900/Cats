@@ -8,7 +8,6 @@ const initialState: CatState = {
     isLoading: true,
     error: '',
 }
-
 export const catSlice = createSlice({
     name: 'cat',
     initialState,
@@ -22,11 +21,11 @@ export const catSlice = createSlice({
             state.isLoading = false;
             state.error = action.payload;
         },
-        catsAddingToFavorite(state, action: PayloadAction<string>) {
+        catsAddingToFavorite(state, action: PayloadAction<ICat>) {
             state.favorites = [...state.favorites, action.payload];
         },
         catsRemovingFromFavorite(state, action: PayloadAction<string>) {
-            state.favorites = state.favorites.filter(cat => cat !== action.payload);
+            state.favorites = state.favorites.filter(favorite => favorite.id !== action.payload);
         }
     }
 })
