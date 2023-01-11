@@ -6,16 +6,21 @@ const initialState: CatState = {
     cats: [],
     favorites: [],
     isLoading: true,
+    page: 1,
     error: '',
 }
 export const catSlice = createSlice({
     name: 'cat',
     initialState,
     reducers: {
+        catsFetching(state) {
+            state.isLoading = true;
+        },
         catsFetchingSuccess(state, action: PayloadAction<Cat[]>) {
             state.error = '';
             state.cats = [...state.cats, ...action.payload];
             state.isLoading = false;
+            state.page = state.page + 1;
         },
         catsFetchingError(state, action: PayloadAction<string>) {
             state.isLoading = false;

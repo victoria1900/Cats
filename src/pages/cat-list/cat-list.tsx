@@ -1,25 +1,35 @@
-import React, {useEffect, useRef} from 'react';
-import {useAppDispatch, useAppSelector} from "../../core/hooks/redux";
-import {fetchCats} from "../../core/store/actions-creators/action-creators";
+import React, {FC, useCallback, useEffect} from 'react';
+import {useAppSelector} from "../../core/hooks/use-app-selector";
 import CatCard from "../../components/cat-card/cat-card";
-import {selectCatReducers} from "../../core/store/reducers/cat-slice";
+import {catSlice, selectCatReducers} from "../../core/store/reducers/cat-slice";
 import './style.scss';
+import {useActions} from "../../core/hooks/use-actions";
+import {useAppDispatch} from "../../core/hooks/use-app-dispatch";
 
-const CatList = () => {
-    const {cats, error, isLoading} = useAppSelector(selectCatReducers);
+const CatList: FC = () => {
+    const {cats, error, isLoading, page} = useAppSelector(selectCatReducers);
+    const {fetchCats} = useActions();
     const dispatch = useAppDispatch();
-    const effectRun = useRef(false);
+
+    const scrollHandler = useCallback((e: any)=>{
+        if (e.target.documentElement.scrollHeight - (e.target.documentElement.scrollTop + window.innerHeight) < 100) {
+            dispatch(catSlice.actions.catsFetching());
+        }
+    },[dispatch]);
+
+    useEffect(() => {
+        document.addEventListener('scroll', scrollHandler);
+        return () => {
+            document.removeEventListener('scroll', scrollHandler);
+        }
+    }, [scrollHandler]);
+
 
     useEffect(() => {
         if (isLoading) {
-            if (!effectRun.current) {
-                dispatch(fetchCats());
-                return () => {
-                    effectRun.current = true;
-                }
-            }
+            fetchCats(page);
         }
-    }, [isLoading, dispatch]);
+    }, [isLoading, fetchCats, page]);
 
     return (
         <>

@@ -1,5 +1,5 @@
 import React, {FC} from 'react';
-import {useAppDispatch, useAppSelector} from "../../core/hooks/redux";
+import {useAppSelector} from "../../core/hooks/use-app-selector";
 import {
     catsAddingToFavorite,
     catsRemovingFromFavorite,
@@ -7,6 +7,7 @@ import {
 } from "../../core/store/reducers/cat-slice";
 import {ICatCardProps} from "../../core/types/cat";
 import './style.scss';
+import {useAppDispatch} from "../../core/hooks/use-app-dispatch";
 
 const CatCard: FC<ICatCardProps> = ({cat}) => {
     const {url, id} = cat;

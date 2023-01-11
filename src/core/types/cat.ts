@@ -7,6 +7,7 @@ export interface CatState {
     cats: Cat[],
     favorites: Cat[],
     isLoading: boolean,
+    page: number,
     error: string,
 }
 

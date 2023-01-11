@@ -1,13 +1,15 @@
-import React from 'react';
+import React, {FC} from 'react';
 import Header from "../../components/header/header";
 import {Outlet} from "react-router";
 
-const Layout = () => {
+const Layout: FC = () => {
     return (
         <>
             <Header/>
             <div className={'container'}>
-                <Outlet/>
+                <div className={'section'}>
+                    <Outlet/>
+                </div>
             </div>
         </>
     );

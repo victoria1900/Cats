@@ -1,9 +1,9 @@
-import React from 'react';
+import React, {FC} from 'react';
 import '../../styles/index.scss';
 import {Link} from "react-router-dom";
 import './style.scss';
 
-const Header = () => {
+const Header: FC = () => {
     return (
         <div className={'menu'}>
             <div className={'menu-wrap container'}>

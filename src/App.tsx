@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {FC} from 'react';
 import './styles/index.scss';
 import {Route, Routes} from "react-router";
 import Layout from "./pages/layout/layout";
@@ -6,7 +6,7 @@ import NotFound from "./pages/not-found/not-found";
 import FavoriteCats from "./pages/favorite-cats/favorite-cats";
 import CatList from "./pages/cat-list/cat-list";
 
-function App() {
+const App: FC = () => {
     return (
         <Routes>
             <Route path={'/'} element={<Layout/>}>
