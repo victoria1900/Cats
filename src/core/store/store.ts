@@ -1,5 +1,5 @@
 import {combineReducers, configureStore} from "@reduxjs/toolkit";
-import catReducer from './reducers/CatSlice'
+import catReducer from './reducers/cat-slice'
 import {
     persistStore,
     persistReducer,

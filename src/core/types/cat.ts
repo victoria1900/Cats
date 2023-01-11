@@ -1,14 +1,15 @@
-export interface ICat {
+export interface Cat {
     id: string,
     url: string
 }
 
 export interface CatState {
-    cats: ICat[],
-    favorites: ICat[],
+    cats: Cat[],
+    favorites: Cat[],
     isLoading: boolean,
     error: string,
 }
+
 export interface ICatCardProps {
-    cat: ICat
+    cat: Cat
 }

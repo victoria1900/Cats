@@ -1,8 +1,9 @@
 import React, {useEffect, useRef} from 'react';
-import {useAppDispatch, useAppSelector} from "../core/hooks/redux";
-import {fetchCats} from "../core/store/actions-creators/ActionCreators";
-import CatCard from "../components/CatCard";
-import {selectCatReducers} from "../core/store/reducers/CatSlice";
+import {useAppDispatch, useAppSelector} from "../../core/hooks/redux";
+import {fetchCats} from "../../core/store/actions-creators/action-creators";
+import CatCard from "../../components/cat-card/cat-card";
+import {selectCatReducers} from "../../core/store/reducers/cat-slice";
+import './style.scss';
 
 const CatList = () => {
     const {cats, error, isLoading} = useAppSelector(selectCatReducers);

@@ -1,0 +1,27 @@
+@import '../../styles/variables';
+@import "../../styles/mixins";
+@import "animate.css";
+
+.list {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 30px;
+  padding-top: 35px;
+  @media (max-width: $breakpoint-desktop) {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  @media (max-width: $breakpoint-tablet) {
+    grid-template-columns: 1fr 1fr;
+  }
+  @media (max-width: $breakpoint-mobile) {
+    grid-template-columns: 1fr;
+    gap: 15px;
+    padding-top: 15px;
+  }
+}
+
+.text-loading {
+  display: inline-block;
+  clip-path: inset(0 1ch 0 0);
+  animation: loading 1s steps(8) infinite;
+}

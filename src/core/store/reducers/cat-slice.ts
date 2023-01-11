@@ -1,4 +1,4 @@
-import {ICat, CatState} from "../../types/ICat";
+import {Cat, CatState} from "../../types/cat";
 import {createSlice, PayloadAction} from "@reduxjs/toolkit";
 import {RootState} from "../store";
 
@@ -12,7 +12,7 @@ export const catSlice = createSlice({
     name: 'cat',
     initialState,
     reducers: {
-        catsFetchingSuccess(state, action: PayloadAction<ICat[]>) {
+        catsFetchingSuccess(state, action: PayloadAction<Cat[]>) {
             state.error = '';
             state.cats = [...state.cats, ...action.payload];
             state.isLoading = false;
@@ -21,7 +21,7 @@ export const catSlice = createSlice({
             state.isLoading = false;
             state.error = action.payload;
         },
-        catsAddingToFavorite(state, action: PayloadAction<ICat>) {
+        catsAddingToFavorite(state, action: PayloadAction<Cat>) {
             state.favorites = [...state.favorites, action.payload];
         },
         catsRemovingFromFavorite(state, action: PayloadAction<string>) {

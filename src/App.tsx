@@ -1,10 +1,10 @@
 import React from 'react';
 import './styles/index.scss';
 import {Route, Routes} from "react-router";
-import Layout from "./pages/Layout";
-import NotFound from "./pages/NotFound";
-import FavoriteCats from "./pages/FavoriteCats";
-import CatList from "./pages/CatList";
+import Layout from "./pages/layout/layout";
+import NotFound from "./pages/not-found/not-found";
+import FavoriteCats from "./pages/favorite-cats/favorite-cats";
+import CatList from "./pages/cat-list/cat-list";
 
 function App() {
     return (
