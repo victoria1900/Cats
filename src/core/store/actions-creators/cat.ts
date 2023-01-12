@@ -3,12 +3,16 @@ import {Cat} from "../../types/cat";
 import {catSlice} from "../reducers/cat-slice";
 import {AppDispatch} from "../store";
 import {API_KEY, API_URL, BREED_ID} from "../../consts/api";
+import {nanoid} from "@reduxjs/toolkit";
 
 export const fetchCats = (page: number) => {
     return async (dispatch: AppDispatch) => {
         try {
             const response = await axios.get<Cat[]>(`${API_URL}/images/search?limit=20&breed_ids=${BREED_ID}&_page=${page}&api_key=${API_KEY}`);
-            dispatch(catSlice.actions.catsFetchingSuccess(response.data));
+            const array = response.data.map(item => {
+                return {...item, id: nanoid(8)}
+            })
+            dispatch(catSlice.actions.catsFetchingSuccess(array));
         } catch (e: any) {
             dispatch(catSlice.actions.catsFetchingError(e.message));
         }

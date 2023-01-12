@@ -36,8 +36,8 @@ const CatList: FC = () => {
             {cats.length > 0
                 &&
                 <div className={'list'}>
-                    {cats.map((cat, index) =>
-                        <CatCard key={`${cat.id}${index}`} cat={cat}/>
+                    {cats.map((cat) =>
+                        <CatCard key={cat.id} cat={cat}/>
                     )}
                 </div>}
             {error && <p>{error}</p>}
