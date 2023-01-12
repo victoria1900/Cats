@@ -11,11 +11,11 @@ const CatList: FC = () => {
     const {fetchCats} = useActions();
     const dispatch = useAppDispatch();
 
-    const scrollHandler = useCallback((e: any)=>{
+    const scrollHandler = useCallback((e: any) => {
         if (e.target.documentElement.scrollHeight - (e.target.documentElement.scrollTop + window.innerHeight) < 100) {
             dispatch(catSlice.actions.catsFetching());
         }
-    },[dispatch]);
+    }, [dispatch]);
 
     useEffect(() => {
         document.addEventListener('scroll', scrollHandler);
@@ -33,11 +33,13 @@ const CatList: FC = () => {
 
     return (
         <>
-            <div className={'list'}>
-                {cats.map((cat) =>
-                    <CatCard key={cat.id} cat={cat}/>
-                )}
-            </div>
+            {cats.length > 0
+                &&
+                <div className={'list'}>
+                    {cats.map((cat, index) =>
+                        <CatCard key={`${cat.id}${index}`} cat={cat}/>
+                    )}
+                </div>}
             {error && <p>{error}</p>}
             {isLoading && <p className={'text-loading'}>Loading cats...</p>}
         </>

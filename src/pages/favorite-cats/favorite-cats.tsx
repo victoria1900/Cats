@@ -8,11 +8,13 @@ const FavoriteCats: FC = () => {
 
     return (
         <>
-            <div className={'list'}>
-                {favorites.map(favorite =>
-                    <CatCard key={favorite.id} cat={favorite}/>
-                )}
-            </div>
+            {favorites.length > 0
+                &&
+                <div className={'list'}>
+                    {favorites.map(favorite =>
+                        <CatCard key={favorite.id} cat={favorite}/>
+                    )}
+                </div>}
             {favorites.length === 0 && <p>There are no cats here yet</p>}
         </>
 

@@ -7,9 +7,7 @@ const Layout: FC = () => {
         <>
             <Header/>
             <div className={'container'}>
-                <div className={'section'}>
-                    <Outlet/>
-                </div>
+                <Outlet/>
             </div>
         </>
     );
