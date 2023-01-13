@@ -9,10 +9,10 @@
   justify-content: flex-start;
   align-items: center;
   height: 60px;
+  gap: 15px;
 }
 
 .menu-item {
   color: $text-color;
   text-decoration: none;
-  padding-right: 20px;
 }

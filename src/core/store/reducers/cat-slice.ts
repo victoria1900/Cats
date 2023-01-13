@@ -6,7 +6,7 @@ const initialState: CatState = {
     cats: [],
     favorites: [],
     isLoading: true,
-    page: 1,
+    currentPage: 1,
     error: '',
 }
 export const catSlice = createSlice({
@@ -20,7 +20,7 @@ export const catSlice = createSlice({
             state.error = '';
             state.cats = [...state.cats, ...action.payload];
             state.isLoading = false;
-            state.page = state.page + 1;
+            state.currentPage = state.currentPage + 1;
         },
         catsFetchingError(state, action: PayloadAction<string>) {
             state.isLoading = false;
@@ -31,7 +31,7 @@ export const catSlice = createSlice({
         },
         catsRemovingFromFavorite(state, action: PayloadAction<string>) {
             state.favorites = state.favorites.filter(favorite => favorite.id !== action.payload);
-        }
+        },
     }
 })
 export const {

@@ -9,10 +9,8 @@ export const fetchCats = (page: number) => {
     return async (dispatch: AppDispatch) => {
         try {
             const response = await axios.get<Cat[]>(`${API_URL}/images/search?limit=20&breed_ids=${BREED_ID}&_page=${page}&api_key=${API_KEY}`);
-            const array = response.data.map(item => {
-                return {...item, id: nanoid(8)}
-            })
-            dispatch(catSlice.actions.catsFetchingSuccess(array));
+            const data = response.data.map(item => ({...item, id: nanoid(8)}));
+            dispatch(catSlice.actions.catsFetchingSuccess(data));
         } catch (e: any) {
             dispatch(catSlice.actions.catsFetchingError(e.message));
         }

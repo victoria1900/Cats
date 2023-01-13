@@ -7,7 +7,7 @@ import {useActions} from "../../core/hooks/use-actions";
 import {useAppDispatch} from "../../core/hooks/use-app-dispatch";
 
 const CatList: FC = () => {
-    const {cats, error, isLoading, page} = useAppSelector(selectCatReducers);
+    const {cats, error, isLoading, currentPage} = useAppSelector(selectCatReducers);
     const {fetchCats} = useActions();
     const dispatch = useAppDispatch();
 
@@ -27,16 +27,16 @@ const CatList: FC = () => {
 
     useEffect(() => {
         if (isLoading) {
-            fetchCats(page);
+            fetchCats(currentPage);
         }
-    }, [isLoading, fetchCats, page]);
+    }, [isLoading, fetchCats, currentPage]);
 
     return (
         <>
             {cats.length > 0
                 &&
                 <div className={'list'}>
-                    {cats.map((cat) =>
+                    {cats.map(cat =>
                         <CatCard key={cat.id} cat={cat}/>
                     )}
                 </div>}
