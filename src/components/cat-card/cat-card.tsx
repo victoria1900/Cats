@@ -13,7 +13,7 @@ const CatCard: FC<ICatCardProps> = ({cat}) => {
     const {url, id} = cat;
     const {favorites} = useAppSelector(selectCatReducers);
     const dispatch = useAppDispatch();
-    const isInFavorites = favorites.find(favorite => favorite.id === id)
+    const isInFavorites = favorites.find(favorite => favorite.id === id);
 
     const addToFavorite = () => {
         dispatch(catsAddingToFavorite({id: id, url: url}));
@@ -25,10 +25,10 @@ const CatCard: FC<ICatCardProps> = ({cat}) => {
     }
 
     return (
-        <div className={'item'}>
-            <img className={'img'} loading="lazy" src={url} alt="cat"/>
+        <div className={'cat-item'}>
+            <img className={'cat-img'} loading="lazy" src={url} alt="cat"/>
             <button
-                className={!isInFavorites ? 'button' : 'button checked-button'}
+                className={!isInFavorites ? 'cat-button' : 'cat-button checked-button'}
                 onClick={addToFavorite}>
             </button>
         </div>

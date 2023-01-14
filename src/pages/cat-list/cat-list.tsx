@@ -5,6 +5,7 @@ import {catSlice, selectCatReducers} from "../../core/store/reducers/cat-slice";
 import './style.scss';
 import {useActions} from "../../core/hooks/use-actions";
 import {useAppDispatch} from "../../core/hooks/use-app-dispatch";
+import {MoonLoader} from "react-spinners";
 
 const CatList: FC = () => {
     const {cats, error, isLoading, currentPage} = useAppSelector(selectCatReducers);
@@ -15,33 +16,44 @@ const CatList: FC = () => {
         if (e.target.documentElement.scrollHeight - (e.target.documentElement.scrollTop + window.innerHeight) < 100) {
             dispatch(catSlice.actions.catsFetching());
         }
-    }, [dispatch]);
+    }, []);
 
     useEffect(() => {
         document.addEventListener('scroll', scrollHandler);
         return () => {
             document.removeEventListener('scroll', scrollHandler);
         }
-    }, [scrollHandler]);
+    }, []);
 
 
     useEffect(() => {
         if (isLoading) {
             fetchCats(currentPage);
         }
-    }, [isLoading, fetchCats, currentPage]);
+    }, [isLoading]);
 
     return (
         <>
             {cats.length > 0
                 &&
-                <div className={'list'}>
+                <div className={'cat-list'}>
                     {cats.map(cat =>
                         <CatCard key={cat.id} cat={cat}/>
                     )}
-                </div>}
+                </div>
+            }
             {error && <p>{error}</p>}
-            {isLoading && <p className={'text-loading'}>Loading cats...</p>}
+            <MoonLoader
+                color={'#000'}
+                loading={isLoading}
+                cssOverride={{
+                    display: "block",
+                    margin: "0 auto",
+                }}
+                size={30}
+                aria-label="Loading Spinner"
+                data-testid="loader"
+            />
         </>
     );
 };

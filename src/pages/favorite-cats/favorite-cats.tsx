@@ -10,7 +10,7 @@ const FavoriteCats: FC = () => {
         <>
             {favorites.length > 0
                 &&
-                <div className={'list'}>
+                <div className={'cat-list'}>
                     {favorites.map(favorite =>
                         <CatCard key={favorite.id} cat={favorite}/>
                     )}

@@ -1,61 +1,61 @@
 @import '../../styles/vars';
 @import "animate.css";
 
-.item {
+.cat-item {
   position: relative;
 
   &:hover {
-    .img {
+    .cat-img {
       animation: flipInX;
       animation-duration: 1.2s;
     }
 
-    .button {
+    .cat-button {
       opacity: 1;
     }
   }
-}
 
-.button {
-  content: '';
-  position: absolute;
-  width: $heart-size;
-  height: $heart-size;
-  bottom: 15px;
-  right: 10px;
-  background-image: url("../../assets/svg/heart.svg");
-  background-repeat: no-repeat;
-  background-color: transparent;
-  border: 0;
-  cursor: pointer;
-  transition: 0.2s linear;
-  opacity: 0;
-  &:active {
-    transform: scale(1.2);
+  .cat-img {
+    background-color: $menu-background-color;
+    width: 100%;
+    height: $img-height;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 15px;
+    box-shadow: 0 10px 15px 3px rgb(0 0 0 / 50%);
   }
 
-  @media (min-width: $breakpoint-desktop) {
-    &:hover {
-      background-image: url("../../assets/svg/checked-heart.svg");
-      transition: 0.2s linear;
+  .cat-button {
+    content: '';
+    position: absolute;
+    width: $heart-size;
+    height: $heart-size;
+    bottom: 15px;
+    right: 10px;
+    background-image: url("../../assets/svg/heart.svg");
+    background-repeat: no-repeat;
+    background-color: transparent;
+    border: 0;
+    cursor: pointer;
+    transition: 0.2s linear;
+    opacity: 0;
+
+    &:active {
+      transform: scale(1.2);
+    }
+
+    @media (min-width: $breakpoint-desktop) {
+      &:hover {
+        background-image: url("../../assets/svg/checked-heart.svg");
+      }
+    }
+    @media (max-width: $breakpoint-desktop) {
+      opacity: 1;
     }
   }
-  @media (max-width: $breakpoint-desktop) {
+
+  .checked-button {
     opacity: 1;
+    background-image: url("../../assets/svg/checked-heart.svg");
   }
-}
-
-.checked-button {
-  opacity: 1;
-  background-image: url("../../assets/svg/checked-heart.svg");
-}
-
-.img {
-  background-color: $menu-background-color;
-  width: 100%;
-  height: $img-height-desktop;
-  object-fit: cover;
-  object-position: center;
-  border-radius: 15px;
-  box-shadow: 0 10px 15px 3px rgb(0 0 0 / 50%);
 }

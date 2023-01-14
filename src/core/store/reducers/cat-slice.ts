@@ -1,6 +1,7 @@
 import {Cat, CatState} from "../../types/cat";
 import {createSlice, PayloadAction} from "@reduxjs/toolkit";
 import {RootState} from "../store";
+import {fetchCats} from "../actions-creators/cat";
 
 const initialState: CatState = {
     cats: [],
@@ -20,7 +21,7 @@ export const catSlice = createSlice({
             state.error = '';
             state.cats = [...state.cats, ...action.payload];
             state.isLoading = false;
-            state.currentPage = state.currentPage + 1;
+            state.currentPage += 1;
         },
         catsFetchingError(state, action: PayloadAction<string>) {
             state.isLoading = false;

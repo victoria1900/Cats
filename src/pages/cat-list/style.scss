@@ -1,26 +1,18 @@
 @import '../../styles/vars';
-@import "../../styles/mixins";
 @import "animate.css";
 
-.list {
+.cat-list {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: repeat(4, 1fr);
   gap: 30px;
-  margin: 20px 0 0 0;
   @media (max-width: $breakpoint-desktop) {
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: repeat(3, 1fr);
   }
   @media (max-width: $breakpoint-tablet) {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(2, 1fr);
   }
   @media (max-width: $breakpoint-mobile) {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(1, 1fr);
     gap: 15px;
   }
-}
-
-.text-loading {
-  display: inline-block;
-  clip-path: inset(0 1ch 0 0);
-  animation: loading 1s steps(8) infinite;
 }
