@@ -35,11 +35,11 @@ const CatList: FC = () => {
         <>
             {cats.length > 0
                 &&
-                <ul className={'cat-list'}>
+                <div className={'cat-list'}>
                     {cats.map(cat =>
                         <CatCard key={cat.id} cat={cat}/>
                     )}
-                </ul>
+                </div>
             }
             {error && <p>{error}</p>}
             <MoonLoader

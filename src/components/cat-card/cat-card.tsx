@@ -25,7 +25,7 @@ const CatCard: FC<ICatCardProps> = ({cat}) => {
     }
 
     return (
-        <li className={'cat-item'}>
+        <div className={'cat-item'}>
             <img className={'cat-img'} loading="lazy" src={url} alt={`cat ${id}`} />
             <button
                 className={`cat-button ${isInFavorites ? 'checked-button' : ''}`}
@@ -33,7 +33,7 @@ const CatCard: FC<ICatCardProps> = ({cat}) => {
                 aria-label={`add cat ${id} to favorites`}
             >
             </button>
-        </li>
+        </div>
     );
 };
 
