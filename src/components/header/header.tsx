@@ -5,12 +5,16 @@ import './style.scss';
 
 const Header: FC = () => {
     return (
-        <div className={'menu'}>
-            <div className={'menu-wrap container'}>
-                <Link to={'/'} className={'menu-item'}>Cat list</Link>
-                <Link to={'favorite-cats'} className={'menu-item'}>Favorite cats</Link>
-            </div>
-        </div>
+        <nav className={'menu'}>
+            <ul className={'menu-wrap container'}>
+                <li className={'menu-item'}>
+                    <Link to={'/'} className={'menu-link'}>Cat list</Link>
+                </li>
+                <li className={'menu-item'}>
+                    <Link to={'favorite-cats'} className={'menu-link'}>Favorite cats</Link>
+                </li>
+            </ul>
+        </nav>
     );
 };
 

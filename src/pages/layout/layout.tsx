@@ -7,11 +7,11 @@ const Layout: FC = () => {
     return (
         <>
             <Header/>
-            <div className={'container'}>
+            <section className={'container'}>
                 <div className={'cat-section'}>
                     <Outlet/>
                 </div>
-            </div>
+            </section>
         </>
     );
 };

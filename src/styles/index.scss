@@ -10,7 +10,13 @@ body {
   font-family: $text-font-family;
   font-size: $text-font-size;
 }
-
+ul{
+  margin: 0;
+  padding-inline-start: 0;
+}
+li{
+  list-style-type: none;
+}
 p {
   margin: 0;
 }
