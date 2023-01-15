@@ -17,7 +17,6 @@ const FavoriteCats: FC = () => {
                 </div>}
             {favorites.length === 0 && <p>There are no cats here yet</p>}
         </>
-
     );
 };
 

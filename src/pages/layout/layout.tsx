@@ -11,7 +11,6 @@ const Layout: FC = () => {
                 <div className={'cat-section'}>
                     <Outlet/>
                 </div>
-
             </div>
         </>
     );

@@ -3,7 +3,7 @@ import {createSlice, PayloadAction} from "@reduxjs/toolkit";
 import {RootState} from "../store";
 import {fetchCats} from "../actions-creators/cat";
 
-const initialState: CatState = {
+export const initialState: CatState = {
     cats: [],
     favorites: [],
     isLoading: true,
@@ -17,22 +17,26 @@ export const catSlice = createSlice({
         catsFetching(state) {
             state.isLoading = true;
         },
-        catsFetchingSuccess(state, action: PayloadAction<Cat[]>) {
-            state.error = '';
-            state.cats = [...state.cats, ...action.payload];
-            state.isLoading = false;
-            state.currentPage += 1;
-        },
-        catsFetchingError(state, action: PayloadAction<string>) {
-            state.isLoading = false;
-            state.error = action.payload;
-        },
         catsAddingToFavorite(state, action: PayloadAction<Cat>) {
             state.favorites = [...state.favorites, action.payload];
         },
         catsRemovingFromFavorite(state, action: PayloadAction<string>) {
             state.favorites = state.favorites.filter(favorite => favorite.id !== action.payload);
         },
+    },
+    extraReducers: {
+        [fetchCats.pending.type]: (state) => {
+            state.isLoading = true;
+        },
+        [fetchCats.fulfilled.type]: (state, action: PayloadAction<Cat[]>) => {
+            state.cats = [...state.cats, ...action.payload];
+            state.isLoading = false;
+            state.currentPage += 1;
+        },
+        [fetchCats.rejected.type]: (state, action: PayloadAction<string>) => {
+            state.isLoading = false;
+            state.error = action.payload;
+        }
     }
 })
 export const {

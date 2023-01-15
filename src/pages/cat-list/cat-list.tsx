@@ -25,7 +25,6 @@ const CatList: FC = () => {
         }
     }, []);
 
-
     useEffect(() => {
         if (isLoading) {
             fetchCats(currentPage);
