@@ -11,7 +11,6 @@ const CatList: FC = () => {
     const {cats, error, isLoading, currentPage} = useAppSelector(selectCatReducers);
     const {fetchCats} = useActions();
     const dispatch = useAppDispatch();
-
     const scrollHandler = useCallback((e: any) => {
         if (e.target.documentElement.scrollHeight - (e.target.documentElement.scrollTop + window.innerHeight) < 100) {
             dispatch(catSlice.actions.catsFetching());

@@ -6,11 +6,12 @@
   transition: all 0.2s ease-in-out;
 
   &:hover {
-    .cat-img {
-      animation: flipInX;
-      animation-duration: 1.2s;
+    @media (min-width: $breakpoint-desktop){
+      .cat-img {
+        animation: flipInX;
+        animation-duration: 1.2s;
+      }
     }
-
     .cat-button {
       opacity: 1;
     }

@@ -17,16 +17,14 @@ const CatCard: FC<ICatCardProps> = ({cat}) => {
 
     const addToFavorite = () => {
         dispatch(catsAddingToFavorite({id: id, url: url}));
-        favorites.forEach(favorite => {
-            if (favorite.id === id) {
-                dispatch(catsRemovingFromFavorite(id));
-            }
-        })
+        if (favorites.some(favorite => favorite.id === id)) {
+            dispatch(catsRemovingFromFavorite(id));
+        }
     }
 
     return (
         <li className={'cat-item'}>
-            <img className={'cat-img'} loading="lazy" src={url} alt={`cat ${id}`} />
+            <img className={'cat-img'} loading="lazy" src={url} alt={`cat ${id}`}/>
             <button
                 className={`cat-button ${isInFavorites ? 'checked-button' : ''}`}
                 onClick={addToFavorite}
